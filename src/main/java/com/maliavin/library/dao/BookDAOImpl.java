@@ -1,7 +1,6 @@
 package com.maliavin.library.dao;
 
-import com.maliavin.library.model.Author;
-import org.hibernate.SessionFactory;
+import com.maliavin.library.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -9,13 +8,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class AuthorDAOImpl implements AuthorDAO {
+public class BookDAOImpl implements BookDAO {
 
     @Autowired
     private HibernateTemplate hibernateTemplate;
 
-    public List<Author> list() {
+    public List<Book> list() {
         return hibernateTemplate.getSessionFactory()
-                .getCurrentSession().createQuery("from Author order by lastName").list();
+                .getCurrentSession().createQuery("from Book order by name").list();
     }
 }

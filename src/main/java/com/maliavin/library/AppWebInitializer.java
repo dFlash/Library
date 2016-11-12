@@ -1,11 +1,10 @@
 package com.maliavin.library;
 
+import com.maliavin.library.config.RepositoryConfig;
+import com.maliavin.library.config.ServiceConfig;
 import com.maliavin.library.config.SpringMvcConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * Created by Dmitriy on 07.11.2016.
- */
 public class AppWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -14,7 +13,7 @@ public class AppWebInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{SpringMvcConfig.class};
+        return new Class[]{SpringMvcConfig.class, ServiceConfig.class, RepositoryConfig.class};
     }
 
     @Override
